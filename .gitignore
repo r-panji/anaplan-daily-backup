@@ -1,0 +1,14 @@
+.venv/
+.env
+.browser-profile/
+logs/
+output/
+tmp/
+anti-slop/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local targets can contain internal workspace/model names and identifiers.
+config/*
+!config/models.example.yaml
