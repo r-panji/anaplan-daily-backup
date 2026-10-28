@@ -297,7 +297,7 @@ class NavigationTests(unittest.IsolatedAsyncioTestCase):
                     document.querySelector('button').remove();
                     document.title='Home | Anaplan';
                 };
-            },200);
+            },50);
             </script>
         """)
         await self.browser.ensure_authenticated()
