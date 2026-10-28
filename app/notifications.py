@@ -44,7 +44,7 @@ def _notification_text(summary, report_path=None):
         if len(failed) > limit:
             message += f'\n- and {len(failed) - limit} more'
     if report_path:
-        message += f'\nReport: {Path(report_path)}'
+        message += f'\nReport: {Path(report_path).as_posix()}'
     return message, counts
 
 
@@ -113,7 +113,7 @@ def notify(summary, message_override=None, report_path=None, force=False):
         timeout = _env_int('ANAPLAN_NOTIFICATION_TIMEOUT_SECONDS', 15)
         delay = _env_int('ANAPLAN_NOTIFICATION_RETRY_DELAY_SECONDS', 2, minimum=0)
         payload = {'text': message, 'summary': summary, 'counts': counts,
-                   'report': str(report_path) if report_path else None}
+                   'report': Path(report_path).as_posix() if report_path else None}
         last_error = None
         for attempt in range(1, attempts + 1):
             try:
