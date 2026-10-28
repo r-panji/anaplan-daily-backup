@@ -1,0 +1,20 @@
+timezone: Asia/Jakarta
+schedule:
+  hour: 1
+  minute: 0
+backup:
+  suffix_format: "_[BACKUP]_%Y%m%d_%H%M%S"
+  dry_run: true
+  models:
+    - workspace_name: "Example Development Workspace"
+      workspace_id: "YOUR_WORKSPACE_ID"
+      model_name: "Example Feed Model"
+      model_id: "YOUR_MODEL_ID"
+      tags: [daily, feed, dev]
+      enabled: true
+    - workspace_name: "Example QA Workspace"
+      workspace_id: "ANOTHER_WORKSPACE_ID"
+      model_name: "Example QA Model"
+      model_id: "ANOTHER_MODEL_ID"
+      tags: [daily, qa]
+      enabled: false
